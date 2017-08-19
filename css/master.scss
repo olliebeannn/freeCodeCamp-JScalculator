@@ -1,0 +1,23 @@
+body {
+  font-size: 2rem;
+}
+
+.grid-container {
+  border: 1px solid #CCC;
+  display: grid;
+  grid-template-columns: repeat(4, 4fr);
+  grid-template-rows: 80px 20px repeat(4, 4fr);
+  margin: 0 auto;
+  height: 600px;
+  width: 400px;
+}
+
+.calculator__mainDisplay {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+.calculator__subDisplay {
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
