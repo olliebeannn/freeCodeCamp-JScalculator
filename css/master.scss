@@ -10,14 +10,14 @@
   width: 400px;
 }
 
-.calculator__mainDisplay {
+.calculator__mainDisplayContainer {
   grid-column-start: 1;
   grid-column-end: 5;
 
   font-size: 3rem;
 }
 
-.calculator__subDisplay {
+.calculator__subDisplayContainer {
   grid-column-start: 1;
   grid-column-end: 5;
 
@@ -25,11 +25,12 @@
 }
 
 .calculator__button {
-  border: 1px solid #ccc;
-  
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border: 1px solid #ccc;
+  font-size: 1.5rem;
 }
 
 .calculator__button--clear {
