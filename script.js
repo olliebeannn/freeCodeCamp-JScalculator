@@ -20,6 +20,9 @@ $(document).ready(() => {
   const handleClearButtonClick = () => {
     mainDisplayValue = "";
     updateMainDisplay();
+
+    storedNumberValue = "";
+    operandValue = "";
   }
 
   const handleOperandButtonClick = (e) => {
@@ -42,6 +45,33 @@ $(document).ready(() => {
     }
   }
 
+  const handleEqualsButtonClick = () => {
+    let result = "";
+
+    //If there's a previous num and operator entered, and value currently entered
+    //Do the calculation and return the value
+    if(storedNumberValue !== "" && storedOperandValue !== "" && mainDisplayValue !== "") {
+      switch(storedOperandValue) {
+        case '+':
+          result = parseFloat(storedNumberValue) + parseFloat(mainDisplayValue);
+          break;
+        case '-':
+          result = parseFloat(storedNumberValue) - parseFloat(mainDisplayValue);
+          break;
+        case '×':
+          result = parseFloat(storedNumberValue) * parseFloat(mainDisplayValue);
+          break;
+        case '÷':
+          result = parseFloat(storedNumberValue) / parseFloat(mainDisplayValue);
+          break;
+      }
+      console.log("result is " + result);
+      result = result.toString();
+      mainDisplayValue = result;
+      updateMainDisplay();
+    }
+  }
+
   //Update the main display value
   const updateMainDisplay = () => {
     $('.calculator__mainDisplayContent').html(mainDisplayValue);
@@ -52,6 +82,9 @@ $(document).ready(() => {
 
   //Attach operand click handler
   $('.calculator__button--operand').on('click', handleOperandButtonClick);
+
+  //Attach equals button handler
+  $('.calculator__button--equals').on('click', handleEqualsButtonClick);
 
   //Attach clear button handler
   $('.calculator__button--clear').on('click', handleClearButtonClick);
