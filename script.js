@@ -1,6 +1,6 @@
 $(document).ready(() => {
   // console.log("Hi!");
-  let mainDisplayValue = "0";
+  let mainDisplayValue = "";
 
   //Handle a number button being clicked
   const handleNumberButtonClick = (e) => {
@@ -9,18 +9,14 @@ $(document).ready(() => {
     console.log("button just pressed was " + numberValue);
 
     //Append it to the main display value
-    if(mainDisplayValue === "0") {
-      mainDisplayValue = numberValue;
-    } else {
-      mainDisplayValue += numberValue;
-    }
+    mainDisplayValue += numberValue;
     updateMainDisplay();
     console.log("total value entered is " + mainDisplayValue);
   }
 
   //Handle clear button being clicked
   const handleClearButtonClick = () => {
-    mainDisplayValue = "0";
+    mainDisplayValue = "";
     updateMainDisplay();
   }
 
