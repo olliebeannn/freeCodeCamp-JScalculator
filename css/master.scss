@@ -33,13 +33,8 @@
   font-size: 1.5rem;
 }
 
-.calculator__button--clear {
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-
 .calculator__button--equals {
-  grid-column-start: 3;
+  grid-column-start: 1;
   grid-column-end: 5;
 }
 
