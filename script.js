@@ -11,8 +11,11 @@ $(document).ready(() => {
     console.log("button just pressed was " + numberValue);
 
     //Append it to the main display value
-    mainDisplayValue += numberValue;
-    updateMainDisplay();
+    //If condition: only if no decimal points already in string
+    if(mainDisplayValue.indexOf('.') === -1 || numberValue !== ".") {
+      mainDisplayValue += numberValue;
+      updateMainDisplay();
+    }
     console.log("total value entered is " + mainDisplayValue);
   }
 
