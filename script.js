@@ -87,9 +87,14 @@ $(document).ready(() => {
 
       console.log("numDecimalPlacesValTwo = " + numDecimalPlacesValTwo);
 
-      //If there are any decimal points
+      //If there are any decimal points, round to max of 8
       if(numDecimalPlacesValOne + numDecimalPlacesValTwo > 0) {
         result = result.toFixed(Math.min(8, numDecimalPlacesValOne + numDecimalPlacesValTwo));
+      }
+
+      //Express result as exponential if >10^10
+      if(result > 999999999) {
+        result = result.toPrecision(9);
       }
 
       result = result.toString();
