@@ -13,8 +13,11 @@ $(document).ready(() => {
     //Append it to the main display value
     //If condition: only if no decimal points already in string
     if(mainDisplayValue.indexOf('.') === -1 || numberValue !== ".") {
-      mainDisplayValue += numberValue;
-      updateMainDisplay();
+      //Second if condition: allow max of 9 digits to display
+      if(mainDisplayValue.length < 9) {
+        mainDisplayValue += numberValue;
+        updateMainDisplay();
+      }
     }
     console.log("total value entered is " + mainDisplayValue);
   }
