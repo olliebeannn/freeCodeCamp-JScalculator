@@ -69,6 +69,26 @@ $(document).ready(() => {
           break;
       }
       console.log("result is " + result);
+
+      //Rounding to fix floating point issues based on # of decimal places
+      let numDecimalPlacesValOne = 0;
+      if(storedNumberValue.indexOf('.') !== -1) {
+        numDecimalPlacesValOne = storedNumberValue.length - storedNumberValue.indexOf('.') - 1;
+      }
+      console.log("numDecimalPlacesValOne = " + numDecimalPlacesValOne);
+
+      let numDecimalPlacesValTwo = 0;
+      if(mainDisplayValue.indexOf('.') !== -1) {
+        numDecimalPlacesValTwo = mainDisplayValue.length - mainDisplayValue.indexOf('.') - 1;
+      }
+
+      console.log("numDecimalPlacesValTwo = " + numDecimalPlacesValTwo);
+
+      //If there are any decimal points
+      if(numDecimalPlacesValOne + numDecimalPlacesValTwo > 0) {
+        result = result.toFixed(Math.min(8, numDecimalPlacesValOne + numDecimalPlacesValTwo));
+      }
+
       result = result.toString();
       mainDisplayValue = result;
       updateMainDisplay();
